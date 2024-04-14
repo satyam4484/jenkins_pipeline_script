@@ -1,0 +1,42 @@
+pipeline {
+    agent any // Defines the agent where the pipeline will execute. 'any' means it can run on any available agent.
+
+    stages { // Defines the different stages of the pipeline.
+        stage('Checkout') { // Stage for checking out the source code.
+            steps {
+                echo 'Checking out source code...' // Print a message indicating the current step.
+                 // Checkout source code from the Git repository.
+            }
+        }
+        
+        stage('Build') { // Stage for building the application.
+            steps {
+                echo 'Building the application...' // Print a message indicating the current step.
+                 // Execute the build command.
+            }
+        }
+        
+        stage('Test') { // Stage for running tests.
+            steps {
+                echo 'Running tests...' // Print a message indicating the current step.
+                 // Execute the test command.
+            }
+        }
+        
+        stage('Deploy') { // Stage for deploying the application.
+            steps {
+                echo 'Deploying the application...' // Print a message indicating the current step.
+                 // Execute the deploy command.
+            }
+        }
+    }
+    
+    post { // Defines post-build actions based on the outcome of the pipeline.
+        success { // Action to perform if the pipeline succeeds.
+            echo 'Build successful' // Print a success message.
+        }
+        failure { // Action to perform if the pipeline fails.
+            echo 'Build failed' // Print a failure message.
+        }
+    }
+}
